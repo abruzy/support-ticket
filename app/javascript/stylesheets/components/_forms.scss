@@ -1,0 +1,23 @@
+/* Forms */
+
+.input {
+  @apply appearance-none block w-full bg-gray-100 text-gray-900 border border-gray-100 rounded py-3 px-4 leading-tight;
+}
+
+.input:focus {
+  @apply outline-none bg-white border-gray-100;
+}
+
+.label {
+  @apply block text-gray-900 text-sm font-semibold mb-2;
+}
+
+.select {
+  @apply appearance-none py-3 px-4 pr-8 block w-full bg-gray-100 border border-gray-100 text-gray-900
+   rounded leading-tight;
+   -webkit-appearance: none;
+}
+
+.select:focus {
+  @apply outline-none bg-white border-gray-100;
+}

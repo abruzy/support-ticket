@@ -1,0 +1,47 @@
+/* Buttons */
+
+.btn {
+  @apply font-semibold text-sm py-2 px-3 rounded cursor-pointer no-underline;
+  transition: 0.2s ease all;
+}
+
+.btn-default {
+  box-shadow: 0 1px 2px rgba(#444444, 0.1);
+  @apply bg-white border border-gray-300 text-gray-900;
+
+  &:hover, &:focus {
+    @apply bg-gray-300 shadow-none;
+  }
+}
+
+.btn-primary {
+  @apply bg-indigo-500 text-indigo-200;
+
+  &:hover, &:focus {
+    @apply bg-indigo-300 text-indigo-800;
+  }
+}
+
+.btn-secondary {
+  @apply bg-gray-900 text-gray-200 shadow;
+
+  &:hover, &:focus {
+    @apply bg-gray-900 text-gray-200;
+  }
+}
+
+.btn-destroy {
+  @apply bg-white border border-red-400 text-red-400;
+
+  &:hover, &:focus {
+    @apply bg-red-600 text-white;
+  }
+}
+
+.link {
+  @apply no-underline text-indigo-500;
+
+  &:hover, &:focus {
+    @apply text-indigo-800;
+  }
+}
