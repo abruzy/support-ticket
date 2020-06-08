@@ -11,6 +11,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/flash_message' %>
+    <%= render 'layouts/nav' %>
+  
+    <main>
+      <%= content_for?(:content) ? yield(:content) : yield %>
+    </main>
   </body>
 </html>

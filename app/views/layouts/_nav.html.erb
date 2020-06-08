@@ -1,0 +1,28 @@
+<header class="bg-white">
+  <nav class="flex items-center justify-between flex-wrap bg-gray-100 p-4 text-gray-700 border-b border-gray-200">
+    <div class="flex items-center flex-no-shrink mr-6">
+      <%= link_to root_path, class:"link text-xl tracking-tight font-semibold" do %>
+        SupportTicket
+        
+      <% end %>
+    </div>
+    <div class="block lg:hidden">
+      <button class="flex items-center px-3 py-2 border rounded text-gray-100 border-gray-100 hover:text-gray-600 hover:border-gray-700">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+      </button>
+    </div>
+    <div class="w-full block lg:flex-1 lg:flex items-center text-center lg:text-left">
+      <div class="w-full block lg:flex lg:flex-row lg:flex-1 mt-2 lg:mt-0 text-center lg:text-left lg:justify-end">
+        <% unless user_signed_in? %>
+        <%= link_to "Login", new_user_session_path, class:"btn btn-default mr-2" %>
+        <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-default" %>
+        <% else %>
+        <%= link_to "Dashboard", meetings_path, class: "btn btn-default mr-2" %>
+        <%= link_to "Schedule new session", new_meeting_path, class: "btn btn-default mr-2" unless admin? %>
+        <%= link_to "Users", users_path, class: "btn btn-default mr-2" if admin? %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"btn btn-default mr-2" %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</header>
