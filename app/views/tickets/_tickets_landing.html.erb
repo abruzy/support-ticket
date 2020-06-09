@@ -1,6 +1,6 @@
 <nav class="bg-gray-200 mb-4 shadow rounded">
   <ul list-reset>
-    <li class="tab rounded flex items-center">
+    <li class="tab bg-indigo-700 text-white rounded flex items-center">
       My Tickets
     </li>
   </ul>
@@ -8,13 +8,26 @@
 
 <div class="bg-white p-10 border rounded">
 
-     <h1>Tickets</h1>
+     <h1 class="font-bold">All Tickets</h1>
+
+     <div class="flex flex-wrap items-center justify-between border-b-2 p-4 border-gray-300 text-gray-800">
+        <p>Category</p>
+        <p>Title</p>
+        <p>Status</p>
+        <p>Last Updated</p>
+     </div>
 
      <% tickets.each do |ticket| %>
-        <div class="flex flex-wrap items-center justify-start p-4 border-b border-gray-300 mb-6">
+        <div class="flex flex-wrap items-center justify-between p-4 border-b border-gray-300 mb-6">
           <div class="flex-1 flex justify-between">
             <div>
+              <%= link_to ticket.category, ticket, class: "link mr-4" %>
+            </div>
+            <div>
               <%= link_to ticket.title, ticket, class: "link mr-4" %>
+            </div>
+            <div>
+              <%= link_to ticket.status, ticket, class: "link mr-4" %>
             </div>
             <div>
               <%= readable_time(ticket.created_at) %>
@@ -22,7 +35,7 @@
           </div>
         </div>
 
-        <%= link_to "Close ticket", meeting, method: :delete, data: { confirm: "Are you sure? There are no refunds." }, class: "btn btn-destroy ml-4" if admin? %>
+        <%= link_to "Close ticket", ticket, method: :delete, data: { confirm: "Are you sure? There are no refunds." }, class: "btn btn-destroy ml-4" if admin? %>
      <% end %>
   </div>
 

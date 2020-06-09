@@ -21,12 +21,12 @@
 
   <div class="mb-6">
     <%= form.label :category, class: "label" %>
-    <%= form.select :category, options_for_select([["Select Category", ""], "Technical", "Work", "Office", "Home", "Other"]), class: "select" %>
+    <%= form.select :category, options_for_select([["Select Category", ""], "Technical", "Work", "Office", "Home", "Other"]), {}, class: "select" %>
   </div>
 
   <div class="mb-6">
     <%= form.label :priority, class: "label" %>
-    <%= form.select :priority, options_for_select([["Select Priority", ""], "Low", "Medium", "High"]), class: "select" %>
+    <%= form.select :priority, options_for_select([["Select Priority", ""], "Low", "Medium", "High"]), {}, class: "select" %>
   </div>
 
   <div class="mb-6">
