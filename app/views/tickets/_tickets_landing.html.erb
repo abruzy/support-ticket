@@ -27,7 +27,11 @@
               <%= link_to ticket.title, ticket, class: "link mr-4" %>
             </div>
             <div>
-              <%= link_to ticket.status, ticket, class: "link mr-4" %>
+              <% if ticket.status == false %>
+                <p class="link open mr-4">Open</p>
+              <% elsif ticket.status == true %>
+                <p class="link close mr-4">Closed</p>
+              <% end %>
             </div>
             <div>
               <%= readable_time(ticket.created_at) %>
