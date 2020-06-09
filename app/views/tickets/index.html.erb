@@ -1,0 +1,7 @@
+<div class="container m-auto my-4">
+  <% unless current_user.tickets.any? %>
+    <%= render "tickets_cta" %>
+  <% else %>
+    <%= render "tickets_landing", tickets: @tickets %>
+  <% end %>
+</div>

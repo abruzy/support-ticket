@@ -1,0 +1,32 @@
+<div class="p-10 bg-white border border-gray-300 rounded">
+<%= form_with(model: ticket, local: true, class: "ticket-form") do |form| %>
+  <% if ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+
+      <ul>
+      <% ticket.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h3 class="mb-4 font-bold">Meeting Information</h3>
+
+  <div class="mb-6">
+    <%= form.label :title, class: "label" %>
+    <%= form.text_field :title, class: "input" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :message, class: "label" %>
+    <%= form.text_area :message, class: "input" %>
+  </div>
+
+  <hr class="border" />
+
+  <%= form.submit class: "btn btn-primary text-base py-3 px-5 mt-2" %>
+
+<% end %>
+</div>
