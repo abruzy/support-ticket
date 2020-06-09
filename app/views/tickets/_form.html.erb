@@ -1,4 +1,4 @@
-<div class="p-10 bg-white border border-gray-300 rounded">
+<div class="p-10 mb-5 bg-white border border-gray-300 rounded">
 <%= form_with(model: ticket, local: true, class: "ticket-form") do |form| %>
   <% if ticket.errors.any? %>
     <div id="error_explanation">
@@ -20,8 +20,18 @@
   </div>
 
   <div class="mb-6">
+    <%= form.label :category, class: "label" %>
+    <%= form.select :category, options_for_select([["Select Category", ""], "Technical", "Work", "Office", "Home", "Other"]), class: "input" %>
+  </div>
+
+  <div class="mb-6">
+    <%= form.label :priority, class: "label" %>
+    <%= form.select :priority, options_for_select([["Select Priority", ""], "Low", "Medium", "High"]), class: "input" %>
+  </div>
+
+  <div class="mb-6">
     <%= form.label :message, class: "label" %>
-    <%= form.text_area :message, class: "input" %>
+    <%= form.text_area :message, size: "24x6", class: "input" %>
   </div>
 
   <hr class="border" />
