@@ -1,19 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @ticket.title %>
-</p>
-
-<p>
-  <strong>Message:</strong>
-  <%= @ticket.message %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @ticket.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+<div class="max-w-3xl my-10 m-auto">
+  <div class="p-10 bg-white border border-gray-400 rounded">
+    <p>Message: <%= @ticket.message %></p>
+    <p>Category: <%= @ticket.category %></p>
+    <p>Status: <%= @ticket.status %></p>
+    <p>Created on: <%= readable_time(@ticket.created_at) %></p>
+  </div>
+</div>

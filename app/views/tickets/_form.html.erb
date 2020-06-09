@@ -12,7 +12,7 @@
     </div>
   <% end %>
 
-  <h3 class="mb-4 font-bold">Meeting Information</h3>
+  <h3 class="mb-4 font-bold">Ticket Information</h3>
 
   <div class="mb-6">
     <%= form.label :title, class: "label" %>
@@ -21,12 +21,12 @@
 
   <div class="mb-6">
     <%= form.label :category, class: "label" %>
-    <%= form.select :category, options_for_select([["Select Category", ""], "Technical", "Work", "Office", "Home", "Other"]), class: "input" %>
+    <%= form.select :category, options_for_select([["Select Category", ""], "Technical", "Work", "Office", "Home", "Other"]), class: "select" %>
   </div>
 
   <div class="mb-6">
     <%= form.label :priority, class: "label" %>
-    <%= form.select :priority, options_for_select([["Select Priority", ""], "Low", "Medium", "High"]), class: "input" %>
+    <%= form.select :priority, options_for_select([["Select Priority", ""], "Low", "Medium", "High"]), class: "select" %>
   </div>
 
   <div class="mb-6">
