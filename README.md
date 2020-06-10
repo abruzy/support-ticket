@@ -16,6 +16,16 @@ Before you begin, ensure you have met the following requirements:
 * You have installed the latest version of `Ruby, Rails, Node Yarn`
 * You have a `Windows/Linux/Mac` machine..
 
+## Technologies
+
+- Ruby
+- Ruby on Rails
+- JavaScript
+- Webpack
+- TailwindCSS
+- MySQL
+- RSpec
+
 ## Installation
 
 To install Customer Support Ticket App, follow these steps:
@@ -49,26 +59,24 @@ bin/webpack-dev-server
 
 Visit http://localhost:3000/
 
-## Using Customer Support Ticket App
-
-To use this app, follow these steps:
+## Features
 
 --- For Users ---
 
-1. create, update, edit a user
-2. create, update, edit and delete a ticket
-3. comment on ticket
-6. Sign up and sign in with devise gem
+- Sign up / Sign in / Sign out via devise gem
+- User can create a ticket
+- On creation of the ticket by user, the status of the ticket is open
+- User can delete their ticket
+- User can edit their ticket
+- User can view a list of all the ticket he/she has created
 
---- For Admin ---
+--- Admin ---
 
-1. create, update, edit a user
-2. create, update, edit and delete a ticket
-3. comment on all ticket created by different user
-4. Can view all users on the platform
-5. See all ticket that are in the active session and once resolve, can click on the close ticket to change the status to close i.e the issue has being resolved
-6. Sign up and sign in with devise gem
-
+- Sign up / Sign in / Sign out via devise gem
+- Admin can view all users on the platform
+- Admin can view all the active tickets on the platform created by the users
+- Admin can close a ticket which means that the ticket has being resolved
+- Admin can delete user
 
 ## Contributing
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated.
