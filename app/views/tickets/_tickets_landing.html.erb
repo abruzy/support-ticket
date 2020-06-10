@@ -1,6 +1,6 @@
 <nav class="bg-gray-200 mb-4 shadow rounded">
   <ul list-reset>
-    <li class="tab bg-indigo-700 text-white rounded flex items-center">
+    <li class="p-5 bg-indigo-700 text-white rounded">
       My Tickets
     </li>
   </ul>
@@ -28,9 +28,9 @@
             </div>
             <div>
               <% if ticket.status == false %>
-                <p class="link open mr-4">Open</p>
+                <p class="link open text-white mr-4">Open</p>
               <% elsif ticket.status == true %>
-                <p class="link close mr-4">Closed</p>
+                <p class="link close text-white mr-4">Closed</p>
               <% end %>
             </div>
             <div>

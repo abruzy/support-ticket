@@ -1,0 +1,20 @@
+ 
+<div class="container m-auto bg-white my-10 border border-gray-400 p-10">
+<h1 class="text-indigo-800">Open Issues</h1>
+
+ <% @open_issues.each do |ticket| %>
+  <div class="flex flex-wrap items-center justify-start p-4 border-b border-gray-400 mb-6">
+    <div class="flex-1 flex justify-between">
+      <div>
+        <%= link_to ticket.title, ticket, class: "link mr-4" %>
+      </div>
+      <div>
+        <%= ticket.category %> &ndash;
+        <%= ticket.priority %>
+      </div>
+    </div>
+
+    <%= link_to 'Close Ticket', ticket, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-destroy ml-4" if admin? %>
+  </div>
+  <% end %>
+</div>

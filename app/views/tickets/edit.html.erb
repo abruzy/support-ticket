@@ -1,6 +1,5 @@
-<h1>Editing Ticket</h1>
-
-<%= render 'form', ticket: @ticket %>
-
-<%= link_to 'Show', @ticket %> |
-<%= link_to 'Back', tickets_path %>
+<div class="max-w-3xl m-auto px-4">
+  <h1 class="text-3xl mt-10">Edit ticket</h1>
+  <p class="text-lg text-gray-700 mb-6">Having troubles, modify your ticket, you solve your problem below.</p>
+  <%= render 'form', ticket: @ticket %>
+</div>

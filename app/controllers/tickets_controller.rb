@@ -1,16 +1,22 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :must_be_admin, only: [:open_issues]
 
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = current_user.tickets
+    if current_user.admin?
+      @tickets = Ticket.all
+    else
+      @tickets = current_user.tickets.where(user_id: current_user)
+    end
   end
 
   # GET /tickets/1
   # GET /tickets/1.json
   def show
+    @comment = Comment.new
   end
 
   # GET /tickets/new
@@ -62,6 +68,10 @@ class TicketsController < ApplicationController
     end
   end
 
+  def open_issues
+    @open_issues = Ticket.where("status == false")
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ticket
@@ -71,5 +81,11 @@ class TicketsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def ticket_params
       params.require(:ticket).permit(:title, :message, :category, :priority)
+    end
+
+    def must_be_admin
+      unless current_user.admin?
+        redirect_to tickets_path, alert: "You don't have access to this page"
+      end
     end
 end

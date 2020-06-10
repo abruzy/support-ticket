@@ -1,8 +1,29 @@
 <div class="max-w-3xl my-10 m-auto">
   <div class="p-10 bg-white border border-gray-400 rounded">
-    <p>Message: <%= @ticket.message %></p>
-    <p>Category: <%= @ticket.category %></p>
-    <p>Status: <%= @ticket.status %></p>
-    <p>Created on: <%= readable_time(@ticket.created_at) %></p>
+    <p class="mb-3"><span class="font-bold">Message: </span><%= @ticket.message %></p>
+    <p class="mb-3"><span class="font-bold">Category: </span><%= @ticket.category %></p>
+    <p class="mb-3">
+    <span class="font-bold">Status: </span>
+    <% if @ticket.status == false %>
+      <span class="link open text-white mr-4">Open</span>
+    <% elsif @ticket.status == true %>
+      <span class="link close text-white mr-4">Closed</span>
+    <% end %></p>
+    <p class="mb-3"><span class="font-bold">Created on: </span><%= readable_time(@ticket.created_at) %></p>
+
+    <h4>Comments</h4>
+    <hr class="border" />
+
+    <% unless user_signed_in? %>
+      <div class="bg-gray-400 rounded p-4 mt-4 text-center">
+        <p class="text-sm text-gray-700"><%= link_to "Login", new_user_session_path, class: "link" %> or <%= link_to "Sign up", new_user_regsitration_path, class: "link" %> to comment.</p>
+      </div>
+    <% else %>
+        <%= render 'comments/form' %>
+    <% end %>
+
+    <div id="comments" class="mt-10">
+      <%= render @ticket.comments %>
+    </div>
   </div>
 </div>

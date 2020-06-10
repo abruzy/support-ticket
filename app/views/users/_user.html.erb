@@ -1,0 +1,17 @@
+<div class="flex flex-wrap items-center mb-5 text-indigo-800">
+  <div class="flex-1 flex justify-between items-center">
+    <div><h3 class="text-lg"><%= user.full_name %></h3> <%= user.username %> <% if current_user %>(You)<% end %></div>
+    <p>Joined on <%= readable_time(user.created_at) %></p>
+
+  </div>
+  <%= link_to 'Delete User', users_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-destroy ml-4" if admin? %>
+</div>
+
+<% if user.tickets.any? %>
+  <div class="block pl-2 border-l border-indigo-500 mb-5">
+    <p class="text-xs uppercase tracking-loose text-gray-700 pt-1">Ticket Created</p>
+    <% user.tickets.each do |ticket| %>
+        <%= link_to ticket.title, ticket, class: "link my-3 block" %>
+    <% end %>
+  </div>
+<% end %>
