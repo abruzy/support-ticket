@@ -85,6 +85,23 @@ Visit http://localhost:3000/
 
 --- Admin ---
 
+You can make a user an admin by following these steps:
+- open up your terminal
+- enter this command below
+```
+- rails c
+- user = User.find(1)
+- user.update_attribute(:admin, true)
+```
+
+NOTE: substitute the find(1) with the id of the user you want to make an admin
+
+You can find all the user registered on the platform by entering this command below on your rails c
+
+```
+User.all
+```
+
 - Sign up / Sign in / Sign out via devise gem
 - Admin can view all users on the platform
 - Admin can view all the active tickets on the platform created by the users
