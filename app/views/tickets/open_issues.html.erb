@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <%= link_to 'Close Ticket', ticket, remote: true, data: { confirm: 'Are you sure you want to close this ticket ?' }, class: "btn btn-destroy ml-4" if admin? %>
+    <%= link_to 'Close Ticket', ticket, method: :delete, remote: true, data: { confirm: 'Are you sure you want to close this ticket ?' }, class: "btn btn-destroy ml-4" if admin? %>
   </div>
   <% end %>
 </div>

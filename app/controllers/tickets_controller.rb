@@ -69,7 +69,7 @@ class TicketsController < ApplicationController
   end
 
   def open_issues
-    @open_issues = Ticket.where("status == false")
+    @open_issues = Ticket.where("status" == false)
   end
 
   private
