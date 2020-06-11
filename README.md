@@ -45,7 +45,20 @@ cd support-ticket
 bundle
 ```
 
-4. You need to open your terminal in two where you start the server on one and run webpack on the other
+4. Connect mysql database
+
+- create a .env file in the root of the folder
+```
+MYSQL_USER='mysql user'
+MYSQL_PASSWORD='mysql password'
+MYSQL_HOST='mysql host name'
+MYSQL_DB='mysql db name'
+MYSQL_TEST_DB='mysql test-db name'
+```
+
+- Replace the above with the appropiate name 
+
+5. You need to open your terminal in two where you start the server on one and run webpack on the other
 
 ```
 rails s
