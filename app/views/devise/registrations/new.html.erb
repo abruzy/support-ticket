@@ -1,6 +1,6 @@
 <% content_for :devise_form do %>
 
-  <h2 class="heading text-4xl font-bold pt-4 mb-8">Sign up</h2>
+  <h2 class="heading text-4xl font-bold pt-4 mb-8 new_user">Sign up</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>

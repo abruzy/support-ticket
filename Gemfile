@@ -6,7 +6,7 @@ ruby '2.7.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+gem 'mysql2', '>= 0.4.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
 end
 
 group :development do
@@ -44,6 +45,10 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
+  gem 'factory_bot_rails', '~> 5.2'
+  gem 'shoulda-matchers', '~> 4.3'
+  gem 'faker', '~> 2.12'
+  gem 'database_cleaner', '~> 1.8', '>= 1.8.5'
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
@@ -55,3 +60,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '~> 4.7', '>= 4.7.1'
+
+# Autoload dotenv in Rails.
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
