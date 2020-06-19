@@ -26,6 +26,4 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['MYSQL_TEST_DB'] %>
-  username: app_name
-  password: <%= ENV['APP_NAME_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL'] %>
