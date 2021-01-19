@@ -1,31 +1,29 @@
-let environment = {
+module.exports = {
   plugins: [
-    require('tailwindcss')('./app/javascript/stylesheets/tailwind.config.js'),
-    require('postcss-import'),
-    require('postcss-flexbugs-fixes'),
-    require('postcss-preset-env')({
+    require("tailwindcss")("./app/javascript/stylesheets/tailwind.config.js"),
+    require("postcss-import"),
+    require("postcss-flexbugs-fixes"),
+    require("postcss-preset-env")({
       autoprefixer: {
-        flexbox: 'no-2009'
+        flexbox: "no-2009",
       },
-      stage: 3
-    })
-  ]
-}
+      stage: 3,
+    }),
+  ],
+};
 
 // To reduce the size when in production
-if (process.env.RAILS_ENV === 'production') {
+if (process.env.RAILS_ENV === "production") {
   environment.plugins.push(
-    require('@fullhuman/postcss-purgecss')({
+    require("@fullhuman/postcss-purgecss")({
       content: [
-        './app/**/.html.erb',
-        './app/helpers/**/*.rb',
-        './app/javascript/**/*.js',
-        './app/javascript/**/*.vue',
-        './app/javascript/**/*.jsx',
+        "./app/**/.html.erb",
+        "./app/helpers/**/*.rb",
+        "./app/javascript/**/*.js",
+        "./app/javascript/**/*.vue",
+        "./app/javascript/**/*.jsx",
       ],
-      defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || []
+      defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
     })
-  )
+  );
 }
-
-export default environment;

@@ -63,6 +63,20 @@ Before you begin, ensure you have met the following requirements:
 
       rails db:migrate
 
+* Install the [foreman gem](https://rubygems.org/gems/foreman) on your local machine for assets-precompilation:
+
+      gem install foreman
+
+* Starting the rails server using `rails server` isn't ideal since we also want to run the assets-precompilation at the same time. We have a `Procfile` and `Procfile.dev` files set up for this. So you can start the **rails server** and the run **assets-precompilation** at the same time using the command below:
+
+      PORT=3002 foreman start -f Procfile.dev
+
+## Tests
+
+- Run `rspec` or `bundle exec rspec` to run all specs
+- This generates coverage report that you can find under `/coverage`
+- To view coverage in your browser, open `/coverage/index.html` after running specs
+
 ## Features
 
 --- For Users ---
@@ -81,19 +95,15 @@ You can make a user an admin by following these steps:
 - open up your terminal
 - enter this command below
 
-```
-    rails c
-    user = User.find(1)
-    user.update_attribute(:admin, true)
-```
+      rails c
+      user = User.find(1)
+      user.update_attribute(:admin, true)
 
 NOTE: substitute the find(1) with the id of the user you want to make an admin
 
 You can find all the user registered on the platform by entering this command below on your rails c
 
-```
-User.all
-```
+    User.all
 
 - Sign up / Sign in / Sign out via devise gem
 - Admin can view all users on the platform
